@@ -1,0 +1,1 @@
+// Here goes JS for welcome/today section
