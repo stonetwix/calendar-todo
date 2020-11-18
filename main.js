@@ -8,15 +8,11 @@ function main() {
 
 
 let calendarState = {
-    '2020-11-17': [{title: 'Work'}],
+    '2020-11-17': [{title: 'Work'}, {title: 'Work'}, {title: 'Work'}],
+   
 }
 
-let selectedDay = '';
+let selectedDay = '2020-11-17';
 
-function addTodoToDay(day, todo) {
-    if (calendarState[day] === undefined) {
-        calendarState[day] = [todo];
-    } else {
-        calendarState[day].push(todo);
-    }
-};
+
+
