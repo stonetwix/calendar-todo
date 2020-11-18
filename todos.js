@@ -17,20 +17,17 @@ function addToDoItemToSidebar(todo) {
     let newTodoItem = document.createElement('div');
     let textInTodoItem = document.createTextNode(todo.title);
     newTodoItem.appendChild(textInTodoItem);
-    const existingDivTodo = document.getElementById("todo-list"); 
+    const existingDivTodo = document.getElementById('todo-list'); 
     existingDivTodo.appendChild(newTodoItem);
     newTodoItem.classList.add('todo-item');
-
+    
 };
 
 function addAllTodos() {
-    const todos = calendarState[selectedDay];
-
+    document.getElementById('todo-list').innerHTML = '';
+    let todos = calendarState[selectedDay];
+    
     for (const todo of todos) {
         addToDoItemToSidebar(todo);
-    }
-
-    
-}
-
-
+    }  
+};
