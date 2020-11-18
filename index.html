@@ -16,28 +16,40 @@
 
 <body>
     <header>
-        <h1>Title Calendar</h1>
-        <ul>
-            <li>Monday</li>
-            <li>Tuesday</li>
-            <li>Wednesday</li>
-            <li>Thursday</li>
-            <li>Friday</li>
-            <li>Saturday</li>
-            <li>Sunday</li>
-        </ul>
+        <h1 class="text-center">ToDo Calendar</h1>
     </header>
+    
+    <div class="sidebar">
+        <div class="row ">
+            <!--Welcome-->
+            <div class="col-md-12 welcome-section">
+                <h3 class="text-center">Today</h3>
+                <p class="text-center">Here goes time, day and date generated from JS.</p>
+            </div>
 
-    <aside>
-        <!--Welcome-->
-        <div>Welcome section – display time, day and date.</div>
-        
-        <!--ToDo List-->
-        <div>Create and display ToDos</div>
-    </aside>
+            <!--ToDo List-->
+            <div class="col-md-12 todo-list">
+                <p class="text-center"><strong>Click on a day to display and add todos</strong></p>
+                <h2>ToDo <i class="fas fa-plus-circle"></i></h2>
+            </div>
+
+            <div class="col-md-12 todo-item">
+                <span>ToDo item 1</span> 
+                <span><i class="fas fa-ellipsis-h"></i></span>
+            </div>
+        </div>
+    </div>
 
     <!--The calendar-->
-    <main>The calendar – should be created from JS?</main>
+    <main>
+        <div class="row">
+            <div class="col-md-10">
+                
+                The calendar table goes here.
+            </div>
+        </div>
+    </main>
+
     
 </body>
 </html>
