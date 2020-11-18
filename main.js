@@ -13,10 +13,10 @@ let calendarState = {
 
 let selectedDay = '';
 
-function addToDoToday(day, todo) {
+function addTodoToDay(day, todo) {
     if (calendarState[day] === undefined) {
         calendarState[day] = [todo];
     } else {
         calendarState[day].push(todo);
     }
-}
+};
