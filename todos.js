@@ -7,6 +7,7 @@ function start() {
 
 function addEventListeners() {
     document.getElementById('submit-todo').addEventListener('click', handleSubmitButtonClick);
+    document.getElementById('display-form').addEventListener('click', toggleInput);
 }
 
 
@@ -42,3 +43,10 @@ function handleSubmitButtonClick(event) {
     addTodoToDay(selectedDay, {title: inputElement.value});
     addAllTodos();
 };
+
+function toggleInput() {
+    const form = document.getElementById('form');
+    const icon = document.getElementById('display-form');
+    let toggleForm = (form.style.display === 'none') ? form.style.display = 'block' : form.style.display = 'none';
+    let toggleIcon = (icon.className === 'fas fa-plus-circle') ? icon.className = 'fas fa-times-circle' : icon.className = 'fas fa-plus-circle';
+}
