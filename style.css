@@ -79,6 +79,19 @@ header {
     margin-bottom: 1rem;
 }
 
+.btn {
+    background-color: #83a6a8;
+    border: none;
+    border-radius: 0;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    color: white;
+    font-weight: 800;
+}
+.btn:hover {
+    background-color: #619c9f;
+    color: white;
+}
+
 main {
     margin-left: 28rem;
     padding: 3rem;
