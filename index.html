@@ -33,11 +33,6 @@
         <!--Welcome-->
         <div class="col-md-12 welcome-section">
           <h3 class="text-center">Today</h3>
-          <div class="t_days">
-            <script type="text/javascript">
-              document.write(days[today.getDay()]);
-            </script>
-          </div>
           <div class="t_numbers">
             <script type="text/javascript">
               document.write(today.getDate());
@@ -50,6 +45,11 @@
             <script type="text/javascript">
               document.write(today.getFullYear());
             </script>
+            <div class="t_days">
+              <script type="text/javascript">
+                document.write(days[today.getDay()]);
+              </script>
+            </div>
           </div>
         </div>
 
