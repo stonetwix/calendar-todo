@@ -35,6 +35,7 @@ p {
     font-size: 2rem;
     color: #83a6a8;
     margin-left: 8rem;
+    cursor: pointer;
 }
 
 .fa-ellipsis-h {

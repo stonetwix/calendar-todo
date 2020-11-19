@@ -1,9 +1,14 @@
+window.addEventListener('load', start)
 
-function addEventListeners() {
-const addTodoElement = document.getElementById('add-todo');
-addTodoElement.addEventListener('click', openModal);
+function start() {
+    addEventListeners();
 
 }
+
+function addEventListeners() {
+    document.getElementById('submit-todo').addEventListener('click', handleSubmitButtonClick);
+}
+
 
 function addTodoToDay(day, todo) {
     if (calendarState[day] === undefined) {
@@ -19,8 +24,7 @@ function addToDoItemToSidebar(todo) {
     newTodoItem.appendChild(textInTodoItem);
     const existingDivTodo = document.getElementById('todo-list'); 
     existingDivTodo.appendChild(newTodoItem);
-    newTodoItem.classList.add('todo-item');
-    
+    newTodoItem.classList.add('todo-item');   
 };
 
 function addAllTodos() {
@@ -30,4 +34,11 @@ function addAllTodos() {
     for (const todo of todos) {
         addToDoItemToSidebar(todo);
     }  
+};
+
+function handleSubmitButtonClick(event) {
+    event.preventDefault();
+    const inputElement = document.getElementById('add-todo-input');
+    addTodoToDay(selectedDay, {title: inputElement.value});
+    addAllTodos();
 };

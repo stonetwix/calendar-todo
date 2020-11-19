@@ -8,7 +8,7 @@ function main() {
 
 
 let calendarState = {
-    '2020-11-17': [{title: 'Work'}, {title: 'Work'}, {title: 'Work'}],
+    '2020-11-17': [{title: 'Work'}],
    
 }
 
