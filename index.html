@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <!--scrips-->
     <script src="main.js"></script>
+    
 </head>
 
 <body>
@@ -44,12 +45,30 @@
     <main>
         <div class="row">
             <div class="col-md-10">
+                <h3 id="monthAndYear">hello</h3>
                 
-                The calendar table goes here.
+                <div class="table-responsive">
+                    <table id="table" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                                <th>Sun</th>
+                            </tr>
+                        </thead>
+        
+                        <tbody id="calendar_body">
+        
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </main>
-
-    
+    <script src="calendar.js" type="text/javascript"></script>
 </body>
 </html>
