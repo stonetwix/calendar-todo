@@ -6,7 +6,7 @@ console.log(currentMonth);
 currentYear = today.getFullYear();
 console.log(currentYear);
 
-months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",];
+months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
 
 monthAndYear = document.getElementById("monthAndYear");
 console.log(monthAndYear)
