@@ -17,8 +17,10 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+
     <!--scrips-->
     <script src="main.js"></script>
+    <script src="today.js"></script>
   </head>
 
   <body>
@@ -31,9 +33,24 @@
         <!--Welcome-->
         <div class="col-md-12 welcome-section">
           <h3 class="text-center">Today</h3>
-          <p class="text-center">
-            Here goes time, day and date generated from JS.
-          </p>
+          <div class="t_days">
+            <script type="text/javascript">
+              document.write(days[today.getDay()]);
+            </script>
+          </div>
+          <div class="t_numbers">
+            <script type="text/javascript">
+              document.write(today.getDate());
+            </script>
+          </div>
+          <div class="t_date">
+            <script type="text/javascript">
+              document.write(months[today.getUTCMonth()]);
+            </script>
+            <script type="text/javascript">
+              document.write(today.getFullYear());
+            </script>
+          </div>
         </div>
 
         <!--ToDo List-->
