@@ -31,25 +31,35 @@ p {
     font-weight: 400;
 }
 
-.fa-plus-circle {
+.fa-plus-circle, .fa-times-circle {
+    margin-top: 1rem;
+    position: absolute;
     font-size: 2rem;
     color: #83a6a8;
     margin-left: 8rem;
+    cursor: pointer;
 }
 
 .fa-ellipsis-h {
     float: right;
 }
 
+.fa-trash-alt, .fa-edit {
+    float: right;
+    margin-left: 1rem;
+    color: #619c9f;
+    cursor: pointer;
+}
+
 header {
     padding: 2rem;
     background-color: black;
     height: 8rem;
-    
 }
 
 .sidebar {
     position: fixed;
+    overflow-y: auto;
     width: 25rem;
     left: 0;
     top: 8rem;
@@ -64,7 +74,7 @@ header {
     border-bottom: 0.2rem dotted black;
 }
 
-.todo-list {
+.todo {
     margin-top: 5rem;
 }
 
@@ -72,6 +82,21 @@ header {
     background-color: white;
     padding: 1rem 2rem 1rem 1rem;
     margin-top: 1rem;
+    width: 20rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: #83a6a8;
+    border: none;
+    border-radius: 0;
+    padding: 0.7rem 1rem 0.7rem 1rem;
+    color: white;
+    font-weight: 800;
+}
+.btn:hover {
+    background-color: #619c9f;
+    color: white;
 }
 
 main {
