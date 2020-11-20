@@ -48,6 +48,7 @@ p {
     float: right;
     margin-left: 1rem;
     color: #619c9f;
+    cursor: pointer;
 }
 
 header {

@@ -3,14 +3,12 @@ window.addEventListener('load', start)
 function start() {
     addEventListeners();
 
-}
+};
 
 function addEventListeners() {
     document.getElementById('submit-todo').addEventListener('click', handleSubmitButtonClick);
     document.getElementById('display-form').addEventListener('click', toggleInput);
-    document.getElementsByClassName('fa-trash-alt').addEventListener('click', removeTodoItem);
 };
-
 
 function addTodoToDay(day, todo) {
     if (calendarState[day] === undefined) {
@@ -20,7 +18,7 @@ function addTodoToDay(day, todo) {
     }
 };
 
-function addToDoItemToSidebar(todo) {
+function addToDoItemToSidebar(todo, index) {
     let newTodoItem = document.createElement('div');
     let textInTodoItem = document.createTextNode(todo.title);
     newTodoItem.appendChild(textInTodoItem);
@@ -28,12 +26,14 @@ function addToDoItemToSidebar(todo) {
     existingDivTodo.appendChild(newTodoItem);
     newTodoItem.classList.add('todo-item');
 
-    const editIcon = document.createElement('span');
-    editIcon.className = 'fas fa-trash-alt';
-    newTodoItem.appendChild(editIcon);
+    // const editIcon = document.createElement('span');
+    // editIcon.className = 'fas fa-edit';
+    // newTodoItem.appendChild(editIcon);
 
     const removeIcon = document.createElement('span');
-    removeIcon.className = 'fas fa-edit';
+    removeIcon.id = index;
+    removeIcon.className = 'fas fa-trash-alt';
+    removeIcon.addEventListener('click', removeTodoItem);
     newTodoItem.appendChild(removeIcon);
 };
 
@@ -41,8 +41,8 @@ function addAllTodos() {
     document.getElementById('todo-list').innerHTML = '';
     let todos = calendarState[selectedDay];
     
-    for (const todo of todos) {
-        addToDoItemToSidebar(todo);
+    for (let i = 0; i < todos.length; i++) {
+        addToDoItemToSidebar(todos[i], i);
     }  
 };
 
@@ -60,6 +60,8 @@ function toggleInput() {
     icon.className = (icon.className === 'fas fa-plus-circle') ? 'fas fa-times-circle' : 'fas fa-plus-circle';
 };
 
-function removeTodoItem() {
-    console.log('test')
-}
+function removeTodoItem(event) {
+    console.log(event.target.id)
+    calendarState[selectedDay].splice(Number(event.target.id), 1);
+    addAllTodos();
+};
