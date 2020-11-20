@@ -44,6 +44,12 @@ p {
     float: right;
 }
 
+.fa-trash-alt, .fa-edit {
+    float: right;
+    margin-left: 1rem;
+    color: #619c9f;
+}
+
 header {
     padding: 2rem;
     background-color: black;

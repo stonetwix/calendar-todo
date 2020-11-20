@@ -8,7 +8,8 @@ function start() {
 function addEventListeners() {
     document.getElementById('submit-todo').addEventListener('click', handleSubmitButtonClick);
     document.getElementById('display-form').addEventListener('click', toggleInput);
-}
+    document.getElementsByClassName('fa-trash-alt').addEventListener('click', removeTodoItem);
+};
 
 
 function addTodoToDay(day, todo) {
@@ -25,7 +26,15 @@ function addToDoItemToSidebar(todo) {
     newTodoItem.appendChild(textInTodoItem);
     const existingDivTodo = document.getElementById('todo-list'); 
     existingDivTodo.appendChild(newTodoItem);
-    newTodoItem.classList.add('todo-item');   
+    newTodoItem.classList.add('todo-item');
+
+    const editIcon = document.createElement('span');
+    editIcon.className = 'fas fa-trash-alt';
+    newTodoItem.appendChild(editIcon);
+
+    const removeIcon = document.createElement('span');
+    removeIcon.className = 'fas fa-edit';
+    newTodoItem.appendChild(removeIcon);
 };
 
 function addAllTodos() {
@@ -50,3 +59,7 @@ function toggleInput() {
     form.style.display = (form.style.display === 'none') ? 'block' : 'none';
     icon.className = (icon.className === 'fas fa-plus-circle') ? 'fas fa-times-circle' : 'fas fa-plus-circle';
 };
+
+function removeTodoItem() {
+    console.log('test')
+}
