@@ -3,7 +3,9 @@
 window.addEventListener('load', main);
 
 function main() {
-
+    loadCalender();
+    // loadTodos();
+    // loadToday();
 };
 
 

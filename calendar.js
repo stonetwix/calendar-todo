@@ -8,18 +8,22 @@ console.log(currentYear);
 
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
 
-monthAndYear = document.getElementById("monthAndYear");
-console.log(monthAndYear)
-
-showCalendar(currentMonth, currentYear)
-
-
+function loadCalender() {
+    showCalendar(currentMonth, currentYear);
+    document.querySelectorAll("td").forEach(element => {
+        element.addEventListener("click", event => { 
+            event.currentTarget.classList.toggle("bg-info");
+            console.log(event.currentTarget)
+        })
+    });
+}
 
 function showCalendar(month, year) {
-
+    
     let firstDay = (new Date(year, month)).getDay() +6;
     console.log(firstDay);
-
+    
+    const monthAndYear = document.getElementById("monthAndYear");
     monthAndYear.innerText = months[month] + " " + year;
     console.log(monthAndYear)
 
@@ -41,10 +45,19 @@ function showCalendar(month, year) {
             }
             else {
                 cell = document.createElement("td");
+                cell.id = year + "-" + month + "-" + date;
+                cell.addEventListener('click', event => {
+                    selectedDay = event.target.id;
+                    addAllTodos();
+                    
+                })
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("text-info");
                 } 
+                
+                
+
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
@@ -67,14 +80,6 @@ function daysInMonth() {
     
 };
 
-console.log(daysInMonth());
-
-document.querySelectorAll("td").forEach(element => {
-    element.addEventListener("click", event => { 
-        event.currentTarget.classList.toggle("bg-info");
-        console.log(event.currentTarget)
-    })
-});
 
 
 
