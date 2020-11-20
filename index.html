@@ -19,7 +19,13 @@
     <link rel="stylesheet" href="style.css" />
     <!--scrips-->
     <script src="main.js"></script>
+<<<<<<< HEAD
   </head>
+=======
+    <script src="todos.js"></script>
+    <script src="calendar.js"></script>
+</head>
+>>>>>>> main
 
   <body>
     <header>
@@ -36,17 +42,19 @@
           </p>
         </div>
 
-        <!--ToDo List-->
-        <div class="col-md-12 todo-list">
-          <p class="text-center">
-            <strong>Click on a day to display and add todos</strong>
-          </p>
-          <h2>ToDo <i class="fas fa-plus-circle"></i></h2>
-        </div>
-
-        <div class="col-md-12 todo-item">
-          <span>ToDo item 1</span>
-          <span><i class="fas fa-ellipsis-h"></i></span>
+            <!--ToDo List-->
+            <div class="col-md-12 todo">
+                <p class="text-center"><strong>Click on a day to display and add todos</strong></p>
+                <h2>ToDo <i id="display-form" class="fas fa-plus-circle"></i></h2>
+            </div>
+            <div class="col-md-12" id="form" style="display: none;">
+                <form>
+                    <input id="add-todo-input" class="form-control" type="text" placeholder="Your ToDo Title"><br>
+                    <button id="submit-todo" type="submit" class="btn mb-2">Add ToDo</button>
+                </form>
+            </div>
+            <div id="todo-list">
+            </div>
         </div>
       </div>
     </div>
