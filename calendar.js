@@ -43,7 +43,7 @@ function showCalendar(month, year) {
                 cell = document.createElement("td");
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.classList.add("bg-info");
+                    cell.classList.add("text-info");
                 } 
                 cell.appendChild(cellText);
                 row.appendChild(cell);
@@ -59,19 +59,22 @@ function showCalendar(month, year) {
 
 
 function daysInMonth() {
-
+    
     const now = new Date();
-    const days_in_month = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
-    // for(let i = 1; i <=x ; i++){
-    //     output += "day " + i + ", ";
-    //     console.log(output);
-    // }
-    // document.getElementById("calendar_body").innerText = output;
+    let days_in_month = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
+    
     return days_in_month;
     
 };
 
 console.log(daysInMonth());
+
+document.querySelectorAll("td").forEach(element => {
+    element.addEventListener("click", event => { 
+        event.currentTarget.classList.toggle("bg-info");
+        console.log(event.currentTarget)
+    })
+});
 
 
 
