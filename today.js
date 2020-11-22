@@ -1,25 +1,49 @@
-// Here goes JS for welcome/today section
-var today = new Date();
+const date = new Date();
 
-var months = new Array(12);
-months[0] = "Januari";
-months[1] = "Februari";
-months[2] = "Mars";
-months[3] = "April";
-months[4] = "Maj";
-months[5] = "Juni";
-months[6] = "Juli";
-months[7] = "Augusti";
-months[8] = "September";
-months[9] = "October";
-months[10] = "November";
-months[12] = "December";
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
 
-var days = new Array(7);
-days[0] = "Söndag";
-days[1] = "Måndag";
-days[2] = "Tisdag";
-days[3] = "Onsdag";
-days[4] = "Torsdag";
-days[5] = "Fredag";
-days[6] = "Lördag";
+const days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+function time(i) {
+  if (i < 10) {
+    i = "0" + i;
+  }
+  return i;
+}
+
+function displayTime() {
+  var h = date.getHours();
+  var m = date.getMinutes();
+  document.querySelector(".time_n").innerHTML = h + ":" + m;
+  t = setTimeout(function () {
+    time();
+  }, 500);
+}
+
+displayTime();
+
+document.querySelector(".month-year").innerHTML =
+  months[date.getMonth()] + " " + date.getFullYear();
+document.querySelector(".number_n").innerHTML = date.getDate();
+document.querySelector(".weekday_n").innerHTML = days[date.getDay()];
