@@ -74,31 +74,38 @@ header {
 
 /* welcome-section sub elements  */
 
-.t_days {
-  padding-left: 0.5rem;
+.weekday_n {
+  padding: 0 0 0 100px;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .todo {
     margin-top: 5rem;
 }
 
-.t_numbers {
+.number_n {
   border: #212529 3px solid;
   border-radius: 5px;
   background-color: #83a6a8;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 4rem;
-  margin: 0 100px 0 100px;
-  padding-left: 1.3rem;
+  margin: 0 100px 0 105px;
+  padding-left: 10px;
 }
 
-.t_date {
-  margin-left: 95px;
-  padding-top: 0.5rem;
+.month-year {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1.3rem;
+  padding: 1rem 0 0 4.5rem;
+}
+
+.time_n {
+  padding-left: 8rem;
+  font-size: 1.5rem;
 }
 .todo-list {
   margin-top: 5rem;
