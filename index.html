@@ -8,7 +8,9 @@
     <script
       src="https://kit.fontawesome.com/62432d8828.js"
       crossorigin="anonymous"
+      
     ></script>
+    
     <!--css links-->
     <link
       rel="stylesheet"
@@ -18,9 +20,8 @@
     />
     <link rel="stylesheet" href="style.css" />
 
-    <!--scrips-->
+    <!--scripts-->
     <script src="main.js"></script>
-    <script src="today.js"></script>
   </head>
 
   <body>
@@ -33,22 +34,19 @@
         <!--Welcome-->
         <div class="col-md-12 welcome-section">
           <h3 class="text-center">Today</h3>
-          <div class="t_numbers">
-            <script type="text/javascript">
-              document.write(today.getDate());
-            </script>
-          </div>
-          <div class="t_date">
-            <script type="text/javascript">
-              document.write(months[today.getUTCMonth()]);
-            </script>
-            <script type="text/javascript">
-              document.write(today.getFullYear());
-            </script>
-            <div class="t_days">
-              <script type="text/javascript">
-                document.write(days[today.getDay()]);
-              </script>
+          <div class="todays-date"></div>
+          <p class="number_n"></p>
+            <div class="date">
+              <div class="month-year">
+                <p class="month_n"></p>
+                <p class="year_n"></p>
+              </div>
+              <p class="weekday_n"></p>
+              <div class="time_n">
+                <div class="hour"></div>
+                <div class="minute"></div>
+
+              </div>
             </div>
           </div>
         </div>
@@ -95,6 +93,6 @@
       </div>
     </main>
     <script src="calendar.js" type="text/javascript"></script>
-    <script src="today.js" type="text/javascript"></script>
+    <script src="today.js"  type="text/javascript"></script>
   </body>
 </html>
