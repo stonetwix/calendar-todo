@@ -26,15 +26,18 @@ const days = [
 ];
 
 function time(i) {
-  if (i < 10) {
+  if (i < 10 || i == 0) {
     i = "0" + i;
   }
   return i;
 }
 
+// Adding a 0 before if the hour-minute digits are below 10
 function displayTime() {
   var h = date.getHours();
   var m = date.getMinutes();
+  m = time(m);
+  h = time(h);
   document.querySelector(".time_n").innerHTML = h + ":" + m;
   t = setTimeout(function () {
     time();
