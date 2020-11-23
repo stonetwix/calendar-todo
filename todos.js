@@ -49,7 +49,8 @@ function addAllTodos() {
 function handleSubmitButtonClick(event) {
     event.preventDefault();
     const inputElement = document.getElementById('add-todo-input');
-    addTodoToDay(selectedDay, {title: inputElement.value});
+    let dateFromDatepicker = $('#datepicker').data().datepicker.getFormattedDate('yyyy-mm-dd');
+    addTodoToDay(dateFromDatepicker, {title: inputElement.value});
     addAllTodos();
 };
 
