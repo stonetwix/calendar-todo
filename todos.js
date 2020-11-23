@@ -2,20 +2,12 @@ window.addEventListener('load', start)
 
 function start() {
     addEventListeners();
-
+    addAllTodos();
 };
 
 function addEventListeners() {
     document.getElementById('submit-todo').addEventListener('click', handleSubmitButtonClick);
     document.getElementById('display-form').addEventListener('click', toggleInput);
-};
-
-function addTodoToDay(day, todo) {
-    if (calendarState[day] === undefined) {
-        calendarState[day] = [todo];
-    } else {
-        calendarState[day].push(todo);
-    }
 };
 
 function addToDoItemToSidebar(todo, index) {
@@ -37,12 +29,24 @@ function addToDoItemToSidebar(todo, index) {
     newTodoItem.appendChild(removeIcon);
 };
 
+function filterTodos(date) {
+    const output = [];
+    for (let i = 0; i < todoList.length; i++) {
+        let todo = todoList[i];
+        todo.index = i;
+        if (!date || date === todoList[i].date) {
+            output.push(todo);
+        }
+    }
+    return output.sort((x, y) => x.date < y.date ? -1 : (x.date > y.date ? 1 : 0));
+};
+
 function addAllTodos() {
     document.getElementById('todo-list').innerHTML = '';
-    let todos = calendarState[selectedDay];
-    
+    //let todos = calendarState[selectedDay];
+    const todos = filterTodos(selectedDay);
     for (let i = 0; i < todos.length; i++) {
-        addToDoItemToSidebar(todos[i], i);
+        addToDoItemToSidebar(todos[i], todos[i].index);
     }  
 };
 
@@ -50,7 +54,7 @@ function handleSubmitButtonClick(event) {
     event.preventDefault();
     const inputElement = document.getElementById('add-todo-input');
     let dateFromDatepicker = $('#datepicker').data().datepicker.getFormattedDate('yyyy-mm-dd');
-    addTodoToDay(dateFromDatepicker, {title: inputElement.value});
+    todoList.push({title: inputElement.value, date: dateFromDatepicker});
     addAllTodos();
 };
 
@@ -63,7 +67,7 @@ function toggleInput() {
 
 function removeTodoItem(event) {
     console.log(event.target.id)
-    calendarState[selectedDay].splice(Number(event.target.id), 1);
+    todoList.splice(Number(event.target.id), 1);
     addAllTodos();
 };
 
