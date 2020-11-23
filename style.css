@@ -85,28 +85,28 @@ header {
     margin-top: 5rem;
 }
 
-.number_n {
+.time_n {
   border: #212529 3px solid;
   border-radius: 5px;
   background-color: #83a6a8;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-size: 4rem;
+  font-size: 2.7rem;
   margin: 0 100px 0 105px;
-  padding-left: 10px;
+  padding-left: 4px;
 }
 
-.month-year {
+.number-month-year {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 1.3rem;
-  padding: 1rem 0 0 4.5rem;
+  padding: 1rem 0 0 4rem;
 }
 
-.time_n {
+/* .number_n {
   padding-left: 8rem;
   font-size: 1.5rem;
-}
+} */
 .todo-list {
   margin-top: 5rem;
 }

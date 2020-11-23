@@ -46,7 +46,7 @@ function displayTime() {
 
 displayTime();
 
-document.querySelector(".month-year").innerHTML =
-  months[date.getMonth()] + " " + date.getFullYear();
-document.querySelector(".number_n").innerHTML = date.getDate();
+document.querySelector(".number-month-year").innerHTML =
+  date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
+
 document.querySelector(".weekday_n").innerHTML = days[date.getDay()];
