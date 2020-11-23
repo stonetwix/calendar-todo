@@ -41,6 +41,11 @@ function showCalendar(month, year) {
             }
             else {
                 cell = document.createElement("td");
+                cell.id = '2020-11-' + date;
+                cell.addEventListener('click', event => {
+                selectedDay = event.target.id;
+                addAllTodos();
+                })
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");

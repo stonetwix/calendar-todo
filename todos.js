@@ -65,3 +65,11 @@ function removeTodoItem(event) {
     calendarState[selectedDay].splice(Number(event.target.id), 1);
     addAllTodos();
 };
+
+$(function () {
+    $("#datepicker").datepicker({ 
+          autoclose: true, 
+          todayHighlight: true,
+          weekStart: 1,
+    }).datepicker('update', new Date());
+  });
