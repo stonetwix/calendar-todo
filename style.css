@@ -75,7 +75,7 @@ header {
 /* welcome-section sub elements  */
 
 .weekday_n {
-  padding: 0 0 0 100px;
+  padding: 0 0 0 95px;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 2rem;
@@ -91,7 +91,7 @@ header {
   background-color: #83a6a8;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-size: 2.7rem;
+  font-size: 2.6rem;
   margin: 0 100px 0 105px;
   padding-left: 4px;
 }
