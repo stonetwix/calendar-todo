@@ -11,8 +11,15 @@ function addEventListeners() {
 };
 
 function addToDoItemToSidebar(todo, index) {
-    let newTodoItem = document.createElement('div');
-    let textInTodoItem = document.createTextNode(todo.title);
+    const newTodoItem = document.createElement('div');
+    const dateSpanElement = document.createElement('span');
+    dateSpanElement.className = 'todo-date-span';
+    const dateInTodoItem = document.createTextNode(todo.date + ' ');
+    dateSpanElement.appendChild(dateInTodoItem);
+
+    
+    const textInTodoItem = document.createTextNode(todo.title);
+    newTodoItem.appendChild(dateSpanElement);
     newTodoItem.appendChild(textInTodoItem);
     const existingDivTodo = document.getElementById('todo-list'); 
     existingDivTodo.appendChild(newTodoItem);

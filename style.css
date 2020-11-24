@@ -84,6 +84,8 @@ header {
     margin-top: 1rem;
     width: 20rem;
     margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
 }
 
 .btn {
@@ -121,4 +123,10 @@ label {
 
 .datepicker {
     padding: 0.7rem;
+}
+
+.todo-date-span {
+    color: #888;
+    padding-right: 0.5rem;
+    font-weight: 300;
 }
