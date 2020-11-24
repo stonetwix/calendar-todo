@@ -7,7 +7,6 @@ function start() {
 
 function addEventListeners() {
     document.getElementById('submit-todo').addEventListener('click', handleSubmitButtonClick);
-    document.getElementById('display-form').addEventListener('click', toggleInput);
     document.getElementById('save-todo').addEventListener('click', editEventHandler);
 };
 
@@ -68,13 +67,6 @@ function handleSubmitButtonClick(event) {
     addAllTodos();
 };
 
-function toggleInput() {
-    const form = document.getElementById('form');
-    const icon = document.getElementById('display-form');
-    form.style.display = (form.style.display === 'none') ? 'block' : 'none';
-    icon.className = (icon.className === 'fas fa-plus-circle') ? 'fas fa-times-circle' : 'fas fa-plus-circle';
-};
-
 function removeTodoItem(event) {
     todoList.splice(Number(event.target.id), 1);
     addAllTodos();
@@ -95,7 +87,7 @@ function editEventHandler(event) {
     addAllTodos();
     document.getElementById('submit-todo').style.display = 'flex';
     document.getElementById('save-todo').style.display = 'none';
-    toggleInput();
+    document.getElementById('add-todo-input').value = '';
 };
 
 $(function () {
