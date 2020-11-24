@@ -4,7 +4,7 @@ let calendarState = {
 }
 
 let selectedDay;
-
+let editTodoIndex;
 const todoList = [];
 
 window.addEventListener('load', main);

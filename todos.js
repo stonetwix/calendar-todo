@@ -8,6 +8,7 @@ function start() {
 function addEventListeners() {
     document.getElementById('submit-todo').addEventListener('click', handleSubmitButtonClick);
     document.getElementById('display-form').addEventListener('click', toggleInput);
+    document.getElementById('save-todo').addEventListener('click', editEventHandler);
 };
 
 function addToDoItemToSidebar(todo, index) {
@@ -25,15 +26,17 @@ function addToDoItemToSidebar(todo, index) {
     existingDivTodo.appendChild(newTodoItem);
     newTodoItem.classList.add('todo-item');
 
-    // const editIcon = document.createElement('span');
-    // editIcon.className = 'fas fa-edit';
-    // newTodoItem.appendChild(editIcon);
-
     const removeIcon = document.createElement('span');
     removeIcon.id = index;
     removeIcon.className = 'fas fa-trash-alt';
     removeIcon.addEventListener('click', removeTodoItem);
     newTodoItem.appendChild(removeIcon);
+
+    const editIcon = document.createElement('span');
+    editIcon.id = index;
+    editIcon.className = 'fas fa-edit';
+    editIcon.addEventListener('click', editTodoItem);
+    newTodoItem.appendChild(editIcon);
 };
 
 function filterTodos(date) {
@@ -73,9 +76,26 @@ function toggleInput() {
 };
 
 function removeTodoItem(event) {
-    console.log(event.target.id)
     todoList.splice(Number(event.target.id), 1);
     addAllTodos();
+};
+
+function editTodoItem(event) {
+    const index = Number(event.target.id);
+    editTodoIndex = index;
+    const title = todoList[index].title;
+    document.getElementById('add-todo-input').value = title;
+    document.getElementById('submit-todo').style.display = 'none';
+    document.getElementById('save-todo').style.display = 'flex';
+};
+
+function editEventHandler(event) {
+    event.preventDefault();
+    todoList[editTodoIndex].title = document.getElementById('add-todo-input').value;
+    addAllTodos();
+    document.getElementById('submit-todo').style.display = 'flex';
+    document.getElementById('save-todo').style.display = 'none';
+    toggleInput();
 };
 
 $(function () {
