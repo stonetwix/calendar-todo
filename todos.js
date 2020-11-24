@@ -52,8 +52,8 @@ function addAllTodos() {
     document.getElementById('todo-list').innerHTML = '';
     //let todos = calendarState[selectedDay];
     const todos = filterTodos(selectedDay);
-    for (let i = 0; i < todos.length; i++) {
-        addToDoItemToSidebar(todos[i], todos[i].index);
+    for (const todo of todos) {
+        addToDoItemToSidebar(todo, todo.index);
     }  
 };
 
