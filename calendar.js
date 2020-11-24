@@ -14,6 +14,7 @@ function loadCalender() {
         element.addEventListener("click", event => { 
             event.currentTarget.classList.toggle("bg-info");
             console.log(event.currentTarget)
+            
         })
     });
 }
@@ -45,9 +46,15 @@ function showCalendar(month, year) {
             }
             else {
                 cell = document.createElement("td");
-                cell.id = year + "-" + month + "-" + date;
+                cell.id = year + "-" + (month +1) + "-" + date;
+                console.log(cell.id);
                 cell.addEventListener('click', event => {
-                    selectedDay = event.target.id;
+                   
+                    selectedDayID = event.target.id;
+                    /** @type {boolean} */
+                    selectedDayClassToggle = event.currentTarget.classList.toggle(selectedDayID)
+                    selectedDay = event.currentTarget.classList[0];
+                    console.log(selectedDay)
                     addAllTodos();
                     
                 })
