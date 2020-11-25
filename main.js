@@ -12,6 +12,7 @@ let selectedDay;
 let editTodoIndex;
 const todoList = [{title: 'Work', date: '2020-11-25'}];
 
+// Function found on Stackoverflow...
 function groupBy(list, keyGetter) {
     const map = new Map();
     list.forEach((item) => {

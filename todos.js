@@ -66,11 +66,13 @@ function handleSubmitButtonClick(event) {
     todoList.push({title: inputElement.value, date: dateFromDatepicker});
     addAllTodos();
     inputElement.value = '';
+    loadCalender();
 };
 
 function removeTodoItem(event) {
     todoList.splice(Number(event.target.id), 1);
     addAllTodos();
+    loadCalender();
 };
 
 function editTodoItem(event) {

@@ -68,6 +68,7 @@ header {
   bottom: 0;
   padding: 3rem;
   background: #cbdadb;
+  overflow-y: auto;
 }
 
 .welcome-section {
@@ -171,4 +172,12 @@ label {
 
 .badge {
   float: right;
+}
+
+.bg-calendar-cell {
+  background-color: #ccc;
+}
+
+.text-current-day {
+  color: #619c9f;
 }

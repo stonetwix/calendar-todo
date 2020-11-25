@@ -2,13 +2,12 @@
 
 today = new Date();
 currentMonth = today.getMonth();
-console.log(currentMonth);
 currentYear = today.getFullYear();
-console.log(currentYear);
 
 months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",];
 
 function loadCalender() {
+    document.getElementById("calendar_body").innerHTML = '';
     showCalendar(currentMonth, currentYear);
     document.querySelectorAll("td").forEach(element => {
         element.addEventListener("click", event => { 
@@ -17,18 +16,16 @@ function loadCalender() {
             toggledDay = event.currentTarget.classList.toggle(selectedDayID);
             document.querySelectorAll("td").forEach(element => {
                 if(element !== event.currentTarget){
-                    element.classList.remove("bg-info");
+                    element.classList.remove("bg-calendar-cell");
                     // while (classList.length > 0) {
                     //     classList.remove(classList.item(0));
                     // }
                 }
             });
             
-            selectedDay = event.currentTarget.classList[0];
-            toggledDay1 = event.currentTarget.classList.toggle("bg-info");
+            selectedDay = selectedDay === event.currentTarget.id ? undefined : event.currentTarget.id;
+            toggledDay1 = event.currentTarget.classList.toggle("bg-calendar-cell");
             addAllTodos();
-            console.log(event.currentTarget)
-            console.log(x);
             
         });
     });   
@@ -37,7 +34,6 @@ function loadCalender() {
 function showCalendar(month, year) {
     
     let firstDay = (new Date(year, month)).getDay();
-    console.log(firstDay);
     if(firstDay === 0){
         firstDay = firstDay +6;
     }
@@ -47,7 +43,6 @@ function showCalendar(month, year) {
     
     const monthAndYear = document.getElementById("monthAndYear");
     monthAndYear.innerText = months[month] + " " + year;
-    console.log(monthAndYear)
 
     const dateGroup = groupBy(todoList, todo => todo.date);
 
@@ -70,7 +65,6 @@ function showCalendar(month, year) {
                 cell = document.createElement("td");
                 let dateString = year + "-" + (month +1) + "-" + date;
                 cell.id = dateString;
-                const dailyTodos = dateGroup.get(dateString);
 
                 // console.log(cell.id);
                 // cell.addEventListener('click', event => {
@@ -85,12 +79,14 @@ function showCalendar(month, year) {
                 // })
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cell.classList.add("text-info");
+                    cell.classList.add("text-current-day");
                 } 
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
                 
+                const dailyTodos = dateGroup.get(dateString);
+
                 if (dailyTodos) {
                     const todoCountSpanElement = document.createElement('span')
                     const todoCountNumber = document.createTextNode(dailyTodos.length);
