@@ -49,6 +49,7 @@ function showCalendar(month, year) {
     monthAndYear.innerText = months[month] + " " + year;
     console.log(monthAndYear)
 
+    const dateGroup = groupBy(todoList, todo => todo.date);
 
     let date = 1;
     for(let i = 0; i < 6; i++) {
@@ -67,7 +68,10 @@ function showCalendar(month, year) {
             }
             else {
                 cell = document.createElement("td");
-                cell.id = year + "-" + (month +1) + "-" + date;
+                let dateString = year + "-" + (month +1) + "-" + date;
+                cell.id = dateString;
+                const dailyTodos = dateGroup.get(dateString);
+
                 // console.log(cell.id);
                 // cell.addEventListener('click', event => {
                    
@@ -83,12 +87,17 @@ function showCalendar(month, year) {
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("text-info");
                 } 
-                
-                
-
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
+                
+                if (dailyTodos) {
+                    const todoCountSpanElement = document.createElement('span')
+                    const todoCountNumber = document.createTextNode(dailyTodos.length);
+                    todoCountSpanElement.appendChild(todoCountNumber);
+                    todoCountSpanElement.className = 'badge badge-pill badge-danger';
+                    cell.appendChild(todoCountSpanElement);  
+                }
             }
         }
 

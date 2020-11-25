@@ -168,3 +168,7 @@ label {
     font-weight: 300;
     font-size: 0.8rem;
 }
+
+.badge {
+  float: right;
+}
