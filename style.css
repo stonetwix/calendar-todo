@@ -31,6 +31,7 @@ p {
   font-weight: 400;
 }
 
+/*
 .fa-plus-circle, .fa-times-circle {
     margin-top: 1rem;
     position: absolute;
@@ -39,14 +40,16 @@ p {
     margin-left: 8rem;
     cursor: pointer;
 }
+*/
 
 .fa-ellipsis-h {
   float: right;
 }
 
+
 .fa-trash-alt, .fa-edit {
     float: right;
-    margin-left: 1rem;
+    margin-left: 0.5rem;
     color: #619c9f;
     cursor: pointer;
 }
@@ -82,7 +85,7 @@ header {
 }
 
 .todo {
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 .time_n {
@@ -113,10 +116,12 @@ header {
 
 .todo-item {
     background-color: white;
-    padding: 1rem 2rem 1rem 1rem;
+    padding: 1rem;
     margin-top: 1rem;
-    width: 20rem;
     margin-bottom: 1rem;
+    width: 20rem;
+    font-weight: 700;
+    font-size: 0.9rem;
 }
 
 .btn {
@@ -127,12 +132,39 @@ header {
     color: white;
     font-weight: 800;
 }
+
 .btn:hover {
     background-color: #619c9f;
     color: white;
 }
 
 main {
-  margin-left: 28rem;
-  padding: 3rem;
+    margin-left: 28rem;
+    padding: 3rem;
+}
+
+label {
+    margin-top: 1rem;
+}
+
+#datepicker {
+    width: 100%; 
+    margin-bottom: 1rem;
+}
+
+
+#datepicker > span:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+.datepicker {
+    padding: 0.7rem;
+}
+
+.todo-date-span {
+    color: #666;
+    padding-right: 0.5rem;
+    font-weight: 300;
+    font-size: 0.8rem;
 }
