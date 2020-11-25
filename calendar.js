@@ -12,17 +12,38 @@ function loadCalender() {
     showCalendar(currentMonth, currentYear);
     document.querySelectorAll("td").forEach(element => {
         element.addEventListener("click", event => { 
-            event.currentTarget.classList.toggle("bg-info");
-            console.log(event.currentTarget)
+            selectedDayID = event.currentTarget.id;
+            const x = element.classList;
+            toggledDay = event.currentTarget.classList.toggle(selectedDayID);
+            document.querySelectorAll("td").forEach(element => {
+                if(element !== event.currentTarget){
+                    element.classList.remove("bg-info");
+                    // while (classList.length > 0) {
+                    //     classList.remove(classList.item(0));
+                    // }
+                }
+            });
             
-        })
-    });
-}
+            selectedDay = event.currentTarget.classList[0];
+            toggledDay1 = event.currentTarget.classList.toggle("bg-info");
+            addAllTodos();
+            console.log(event.currentTarget)
+            console.log(x);
+            
+        });
+    });   
+};
 
 function showCalendar(month, year) {
     
-    let firstDay = (new Date(year, month)).getDay() +6;
+    let firstDay = (new Date(year, month)).getDay();
     console.log(firstDay);
+    if(firstDay === 0){
+        firstDay = firstDay +6;
+    }
+    else {
+        firstDay;
+    }
     
     const monthAndYear = document.getElementById("monthAndYear");
     monthAndYear.innerText = months[month] + " " + year;
@@ -47,17 +68,17 @@ function showCalendar(month, year) {
             else {
                 cell = document.createElement("td");
                 cell.id = year + "-" + (month +1) + "-" + date;
-                console.log(cell.id);
-                cell.addEventListener('click', event => {
+                // console.log(cell.id);
+                // cell.addEventListener('click', event => {
                    
-                    selectedDayID = event.target.id;
-                    /** @type {boolean} */
-                    selectedDayClassToggle = event.currentTarget.classList.toggle(selectedDayID)
-                    selectedDay = event.currentTarget.classList[0];
-                    console.log(selectedDay)
-                    addAllTodos();
+                //     selectedDayID = event.target.id;
                     
-                })
+                //     /** @type {boolean} */
+                //     selectedDayClassToggle = event.currentTarget.classList.toggle(selectedDayID)
+                //     selectedDay = event.currentTarget.classList[0];
+                //     addAllTodos();
+                    
+                // })
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("text-info");
