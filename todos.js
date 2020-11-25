@@ -65,6 +65,7 @@ function handleSubmitButtonClick(event) {
     let dateFromDatepicker = $('#datepicker').data().datepicker.getFormattedDate('yyyy-mm-dd');
     todoList.push({title: inputElement.value, date: dateFromDatepicker});
     addAllTodos();
+    inputElement.value = '';
 };
 
 function removeTodoItem(event) {
