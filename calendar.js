@@ -62,7 +62,7 @@ function showCalendar(month, year) {
             }
             else {
                 cell = document.createElement("td");
-                cell.id = year + "-" + (month +1) + "-" + date;
+                cell.id = year + "-" + ((month < 10) ? ("0" + (month +1)) : (month + 1)) + "-" + ((date <10) ? ("0" + date) : date) ;
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("text-info");
