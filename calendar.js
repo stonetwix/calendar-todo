@@ -12,7 +12,6 @@ function loadCalender() {
     document.querySelectorAll("td").forEach(element => {
         element.addEventListener("click", event => { 
             selectedDayID = event.currentTarget.id;
-            const x = element.classList;
             toggledDay = event.currentTarget.classList.toggle(selectedDayID);
             document.querySelectorAll("td").forEach(element => {
                 if(element !== event.currentTarget){
@@ -87,8 +86,6 @@ function showCalendar(month, year) {
 
         document.getElementById("calendar_body").appendChild(row);
     }
-
-
 };
 
 
