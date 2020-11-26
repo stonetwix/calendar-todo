@@ -63,20 +63,8 @@ function showCalendar(month, year) {
             }
             else {
                 cell = document.createElement("td");
-                let dateString = year + "-" + (month +1) + "-" + date;
+                let dateString = year + "-" + ((month < 10) ? ("0" + (month +1)) : (month + 1)) + "-" + ((date <10) ? ("0" + date) : date);
                 cell.id = dateString;
-
-                // console.log(cell.id);
-                // cell.addEventListener('click', event => {
-                   
-                //     selectedDayID = event.target.id;
-                    
-                //     /** @type {boolean} */
-                //     selectedDayClassToggle = event.currentTarget.classList.toggle(selectedDayID)
-                //     selectedDay = event.currentTarget.classList[0];
-                //     addAllTodos();
-                    
-                // })
                 cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("text-current-day");
