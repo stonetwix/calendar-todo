@@ -2,9 +2,12 @@ window.addEventListener('load', start)
 
 function start() {
     addEventListeners();
+    
+    let oldTodos = JSON.parse(localStorage.getItem('items'));
+    for (const todo of oldTodos) {
+        todoList.push(todo);
+    }
     addAllTodos();
-
-    //todoList = JSON.parse(localStorage.getItem('items'));
 };
 
 function addEventListeners() {
@@ -74,8 +77,7 @@ function removeTodoItem(event) {
     todoList.splice(Number(event.target.id), 1);
     localStorage.setItem('items', JSON.stringify(todoList));
     addAllTodos();
-    loadCalender();
-    
+    loadCalender(); 
 };
 
 function editTodoItem(event) {
@@ -94,6 +96,7 @@ function editEventHandler(event) {
     document.getElementById('submit-todo').style.display = 'flex';
     document.getElementById('save-todo').style.display = 'none';
     document.getElementById('add-todo-input').value = '';
+    localStorage.setItem('items', JSON.stringify(todoList));
 };
 
 $(function () {
