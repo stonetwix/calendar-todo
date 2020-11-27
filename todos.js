@@ -52,11 +52,12 @@ function filterTodos(date) {
 
 function addAllTodos() {
     document.getElementById('todo-list').innerHTML = '';
-    //let todos = calendarState[selectedDay];
     const todos = filterTodos(selectedDay);
     for (const todo of todos) {
         addToDoItemToSidebar(todo, todo.index);
     }  
+    // const oldTodos = localStorage.getItem('items');
+    // addToDoItemToSidebar = oldTodos;
 };
 
 function handleSubmitButtonClick(event) {
@@ -64,6 +65,7 @@ function handleSubmitButtonClick(event) {
     const inputElement = document.getElementById('add-todo-input');
     let dateFromDatepicker = $('#datepicker').data().datepicker.getFormattedDate('yyyy-mm-dd');
     todoList.push({title: inputElement.value, date: dateFromDatepicker});
+    localStorage.setItem('items', JSON.stringify(todoList));
     addAllTodos();
     inputElement.value = '';
     loadCalender();
