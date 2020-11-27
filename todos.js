@@ -3,6 +3,8 @@ window.addEventListener('load', start)
 function start() {
     addEventListeners();
     addAllTodos();
+
+    //todoList = JSON.parse(localStorage.getItem('items'));
 };
 
 function addEventListeners() {
@@ -16,7 +18,6 @@ function addToDoItemToSidebar(todo, index) {
     dateSpanElement.className = 'todo-date-span';
     const dateInTodoItem = document.createTextNode(todo.date + ' ');
     dateSpanElement.appendChild(dateInTodoItem);
-
     
     const textInTodoItem = document.createTextNode(todo.title);
     newTodoItem.appendChild(dateSpanElement);
@@ -56,8 +57,6 @@ function addAllTodos() {
     for (const todo of todos) {
         addToDoItemToSidebar(todo, todo.index);
     }  
-    // const oldTodos = localStorage.getItem('items');
-    // addToDoItemToSidebar = oldTodos;
 };
 
 function handleSubmitButtonClick(event) {
@@ -73,8 +72,10 @@ function handleSubmitButtonClick(event) {
 
 function removeTodoItem(event) {
     todoList.splice(Number(event.target.id), 1);
+    localStorage.setItem('items', JSON.stringify(todoList));
     addAllTodos();
     loadCalender();
+    
 };
 
 function editTodoItem(event) {
