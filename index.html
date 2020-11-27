@@ -23,6 +23,7 @@
     <script src="todos.js"></script>
     <script src="calendar.js"></script>
     <script defer src="today.js"></script>
+    
   </head>
 
   <body>
@@ -67,8 +68,12 @@
     <main>
       <div class="row">
         <div class="col-md-10">
-          <h3 id="monthAndYear">hello</h3>
-
+          <h3 id="monthAndYear"></h3>
+          <button><i class="fas fa-angle-left previous" id="arrow"></i></button>
+          
+          <div class="month"></div>
+          <i class="fas fa-angle-right next" id="arrow"></i>
+          
           <div class="table-responsive">
             <table id="table" class="table table-bordered">
               <thead>
@@ -86,6 +91,7 @@
               <tbody id="calendar_body"></tbody>
             </table>
           </div>
+          
         </div>
       </div>
     </main>

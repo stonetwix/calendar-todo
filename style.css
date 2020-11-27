@@ -31,24 +31,26 @@ p {
   font-weight: 400;
 }
 
-.fa-plus-circle, .fa-times-circle {
-    margin-top: 1rem;
-    position: absolute;
-    font-size: 2rem;
-    color: #83a6a8;
-    margin-left: 8rem;
-    cursor: pointer;
+.fa-plus-circle,
+.fa-times-circle {
+  margin-top: 1rem;
+  position: absolute;
+  font-size: 2rem;
+  color: #83a6a8;
+  margin-left: 8rem;
+  cursor: pointer;
 }
 
 .fa-ellipsis-h {
   float: right;
 }
 
-.fa-trash-alt, .fa-edit {
-    float: right;
-    margin-left: 1rem;
-    color: #619c9f;
-    cursor: pointer;
+.fa-trash-alt,
+.fa-edit {
+  float: right;
+  margin-left: 1rem;
+  color: #619c9f;
+  cursor: pointer;
 }
 
 header {
@@ -67,6 +69,12 @@ header {
   background: #cbdadb;
 }
 
+.todays-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .welcome-section {
   padding-bottom: 2rem;
   border-bottom: 0.2rem dotted black;
@@ -75,14 +83,13 @@ header {
 /* welcome-section sub elements  */
 
 .weekday_n {
-  padding: 0 0 0 95px;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 2rem;
 }
 
 .todo {
-    margin-top: 5rem;
+  margin-top: 5rem;
 }
 
 .time_n {
@@ -92,15 +99,12 @@ header {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 2.6rem;
-  margin: 0 100px 0 105px;
-  padding-left: 4px;
 }
 
 .number-month-year {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 1.3rem;
-  padding: 1rem 0 0 4rem;
 }
 
 /* .number_n {
@@ -112,24 +116,24 @@ header {
 }
 
 .todo-item {
-    background-color: white;
-    padding: 1rem 2rem 1rem 1rem;
-    margin-top: 1rem;
-    width: 20rem;
-    margin-bottom: 1rem;
+  background-color: white;
+  padding: 1rem 2rem 1rem 1rem;
+  margin-top: 1rem;
+  width: 20rem;
+  margin-bottom: 1rem;
 }
 
 .btn {
-    background-color: #83a6a8;
-    border: none;
-    border-radius: 0;
-    padding: 0.7rem 1rem 0.7rem 1rem;
-    color: white;
-    font-weight: 800;
+  background-color: #83a6a8;
+  border: none;
+  border-radius: 0;
+  padding: 0.7rem 1rem 0.7rem 1rem;
+  color: white;
+  font-weight: 800;
 }
 .btn:hover {
-    background-color: #619c9f;
-    color: white;
+  background-color: #619c9f;
+  color: white;
 }
 
 main {
