@@ -3,7 +3,7 @@ window.addEventListener('load', start)
 function start() {
     addEventListeners();
     
-    let oldTodos = JSON.parse(localStorage.getItem('items'));
+    const oldTodos = JSON.parse(localStorage.getItem('items'));
     for (const todo of oldTodos) {
         todoList.push(todo);
     }
