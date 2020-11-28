@@ -12,18 +12,14 @@ function loadCalender() {
     document.querySelectorAll("td").forEach(element => {
         element.addEventListener("click", event => { 
             selectedDayID = event.currentTarget.id;
-            toggledDay = event.currentTarget.classList.toggle(selectedDayID);
             document.querySelectorAll("td").forEach(element => {
                 if(element !== event.currentTarget){
                     element.classList.remove("bg-calendar-cell");
-                    // while (classList.length > 0) {
-                    //     classList.remove(classList.item(0));
-                    // }
                 }
             });
             
             selectedDay = selectedDay === event.currentTarget.id ? undefined : event.currentTarget.id;
-            toggledDay1 = event.currentTarget.classList.toggle("bg-calendar-cell");
+            toggledDay = event.currentTarget.classList.toggle("bg-calendar-cell");
             addAllTodos();
             
         });
