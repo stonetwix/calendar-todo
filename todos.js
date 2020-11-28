@@ -2,6 +2,11 @@ window.addEventListener('load', start)
 
 function start() {
     addEventListeners();
+    
+    const oldTodos = JSON.parse(localStorage.getItem('items'));
+    for (const todo of oldTodos) {
+        todoList.push(todo);
+    }
     addAllTodos();
 };
 
@@ -16,7 +21,6 @@ function addToDoItemToSidebar(todo, index) {
     dateSpanElement.className = 'todo-date-span';
     const dateInTodoItem = document.createTextNode(todo.date + ' ');
     dateSpanElement.appendChild(dateInTodoItem);
-
     
     const textInTodoItem = document.createTextNode(todo.title);
     newTodoItem.appendChild(dateSpanElement);
@@ -52,7 +56,6 @@ function filterTodos(date) {
 
 function addAllTodos() {
     document.getElementById('todo-list').innerHTML = '';
-    //let todos = calendarState[selectedDay];
     const todos = filterTodos(selectedDay);
     for (const todo of todos) {
         addToDoItemToSidebar(todo, todo.index);
@@ -64,6 +67,7 @@ function handleSubmitButtonClick(event) {
     const inputElement = document.getElementById('add-todo-input');
     let dateFromDatepicker = $('#datepicker').data().datepicker.getFormattedDate('yyyy-mm-dd');
     todoList.push({title: inputElement.value, date: dateFromDatepicker});
+    localStorage.setItem('items', JSON.stringify(todoList));
     addAllTodos();
     inputElement.value = '';
     loadCalender();
@@ -71,8 +75,9 @@ function handleSubmitButtonClick(event) {
 
 function removeTodoItem(event) {
     todoList.splice(Number(event.target.id), 1);
+    localStorage.setItem('items', JSON.stringify(todoList));
     addAllTodos();
-    loadCalender();
+    loadCalender(); 
 };
 
 function editTodoItem(event) {
@@ -91,6 +96,7 @@ function editEventHandler(event) {
     document.getElementById('submit-todo').style.display = 'flex';
     document.getElementById('save-todo').style.display = 'none';
     document.getElementById('add-todo-input').value = '';
+    localStorage.setItem('items', JSON.stringify(todoList));
 };
 
 $(function () {

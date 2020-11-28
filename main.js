@@ -10,7 +10,7 @@ function main() {
 
 let selectedDay;
 let editTodoIndex;
-const todoList = [];
+let todoList = [];
 
 // Function found on Stackoverflow...
 function groupBy(list, keyGetter) {
