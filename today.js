@@ -34,17 +34,18 @@ function time(i) {
 
 // Adding a 0 before if the hour-minute digits are below 10
 function displayTime() {
+  const date = new Date();
   var h = date.getHours();
   var m = date.getMinutes();
   m = time(m);
   h = time(h);
   document.querySelector(".time_n").innerHTML = h + ":" + m;
-  t = setTimeout(function () {
-    time();
-  }, 500);
+
 }
 
 displayTime();
+
+setInterval(displayTime, 500);
 
 document.querySelector(".number-month-year").innerHTML =
   date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear();
