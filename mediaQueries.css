@@ -1,0 +1,44 @@
+@media (max-width: 61.9375em) {
+    main {
+        display: none;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    #datepicker {
+        width: 12rem;
+    }
+
+    #add-todo-input {
+        width: 12rem;
+    }
+    #todo-list {
+        padding-left: 15px;
+    }
+
+}
+
+@media (max-width: 47.9375em) {
+    .todo-item {
+        width: unset;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    header {
+        height: 6.25rem;
+    }
+
+    .sidebar {
+        top: 6.25rem;
+    }
+
+    .todo-date-span {
+        display: inline-block;
+        width: 100%;
+    }
+}
