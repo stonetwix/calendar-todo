@@ -29,11 +29,12 @@ function loadCalender() {
 function showCalendar(month, year) {
     
     let firstDay = (new Date(year, month)).getDay();
+    console.log(firstDay)
     if(firstDay === 0){
         firstDay = firstDay +6;
     }
     else {
-        firstDay;
+        firstDay = firstDay -1;
     }
     
     const monthAndYear = document.getElementById("monthAndYear");
@@ -87,8 +88,7 @@ function showCalendar(month, year) {
 
 function daysInMonth() {
     
-    const now = new Date();
-    let days_in_month = new Date(now.getFullYear(), now.getMonth()+1, 0).getDate();
+    let days_in_month = new Date(today.getFullYear(), today.getMonth()+1, 0).getDate();
     
     return days_in_month;
     
