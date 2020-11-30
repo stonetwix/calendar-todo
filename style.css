@@ -181,3 +181,12 @@ label {
 .text-current-day {
   color: #619c9f;
 }
+
+.holiday-text {
+  float: right;
+  font-size: 0.6rem;
+  margin-left: -1.5rem;
+  margin-top: 1.2rem;
+  color: red;
+  position: absolute;
+}

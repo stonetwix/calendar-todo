@@ -1,6 +1,6 @@
-window.addEventListener('load', start)
+//window.addEventListener('load', start)
 
-function start() {
+function loadTodos() {
     addEventListeners();
     
     const oldTodos = JSON.parse(localStorage.getItem('items'));
