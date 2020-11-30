@@ -2,15 +2,17 @@
 
 window.addEventListener('load', main);
 
-function main() {
+async function main() {
+    loadTodos();
+    holidayGroup = await fetchHolidays();
     loadCalender();
-    // loadTodos();
     // loadToday();
 };
 
 let selectedDay;
 let editTodoIndex;
 let todoList = [];
+let holidayGroup;
 
 // Function found on Stackoverflow...
 function groupBy(list, keyGetter) {

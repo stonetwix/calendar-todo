@@ -78,6 +78,16 @@ function showCalendar(month, year) {
                     todoCountSpanElement.className = 'badge badge-pill badge-danger';
                     cell.appendChild(todoCountSpanElement);  
                 }
+
+                const dailyHoliday = holidayGroup.get(dateString);
+                const holiday = dailyHoliday && dailyHoliday[0] && dailyHoliday[0].helgdag ? dailyHoliday[0].helgdag : null;
+                if (holiday) {
+                    const holidaySpanElement = document.createElement('span');
+                    const holidayName = document.createTextNode(holiday);
+                    holidaySpanElement.appendChild(holidayName);
+                    holidaySpanElement.className = 'holiday-text';
+                    cell.appendChild(holidaySpanElement);
+                }
             }
         }
 
@@ -94,6 +104,17 @@ function daysInMonth() {
     
 };
 
+// Fetch holidays from api.
+async function fetchHolidays() {
+    try {
+        const url = 'https://api.dryg.net/dagar/v2.1/2020';
+        const result = await fetch(url);
+        const data = await result.json();
+        return groupBy(data.dagar, day => day.datum);
+    } catch (error) {
+        return new Map();
+    }
+};
 
 
 
