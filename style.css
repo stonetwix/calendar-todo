@@ -52,6 +52,7 @@ p {
     margin-left: 0.5rem;
     color: #619c9f;
     cursor: pointer;
+    margin-top: 0.25rem;
 }
 
 header {
@@ -79,7 +80,6 @@ header {
 /* welcome-section sub elements  */
 
 .weekday_n {
-  padding: 0 0 0 95px;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 2rem;
@@ -96,15 +96,21 @@ header {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 2.6rem;
-  margin: 0 100px 0 105px;
-  padding-left: 4px;
+  width: 7.5rem;
+}
+
+.centered_column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .number-month-year {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 1.3rem;
-  padding: 1rem 0 0 4rem;
+  margin-top: 1rem;
 }
 
 /* .number_n {
