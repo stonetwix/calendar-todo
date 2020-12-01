@@ -96,7 +96,7 @@ function showCalendar(month, year) {
 
 function daysInMonth() {
     
-    let days_in_month = new Date(today.getFullYear(), today.getMonth()+1, 0).getDate();
+    let days_in_month = new Date(currentYear, currentMonth +1, 0).getDate();
     
     return days_in_month;
     
@@ -139,7 +139,6 @@ async function updateCalendarDateState(month, year) {
     currentMonth = month;
     currentYear = year;
     const newDate = new Date();
-    today = new Date(year, month, newDate.getDate());
     holidayGroup = await fetchHolidays();
 };
 
