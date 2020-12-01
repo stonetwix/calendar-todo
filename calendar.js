@@ -26,10 +26,8 @@ function loadCalender() {
     });   
 };
 
-function showCalendar(month, year) {
-    
+function showCalendar(month, year) {  
     let firstDay = (new Date(year, month)).getDay();
-    console.log(firstDay)
     if(firstDay === 0){
         firstDay = firstDay +6;
     }
@@ -107,7 +105,7 @@ function daysInMonth() {
 // Fetch holidays from api.
 async function fetchHolidays() {
     try {
-        const url = 'https://api.dryg.net/dagar/v2.1/2020';
+        const url = 'https://api.dryg.net/dagar/v2.1/' + currentYear;
         const result = await fetch(url);
         const data = await result.json();
         return groupBy(data.dagar, day => day.datum);
@@ -117,5 +115,37 @@ async function fetchHolidays() {
 };
 
 
+// Change between months
+async function getNextMonth() {   
+    if (currentMonth !== 11) {
+        await updateCalendarDateState(currentMonth + 1, currentYear);
+    } else {
+        await updateCalendarDateState(0, currentYear + 1);
+    }
+    loadCalender();
+};
 
+async function getPreviousMonth() {   
+    if (currentMonth !== 0) {
+        await updateCalendarDateState(currentMonth - 1, currentYear);
+        
+    } else {
+        await updateCalendarDateState(11, currentYear - 1);
+    }   
+    loadCalender();
+};
 
+async function updateCalendarDateState(month, year) {
+    currentMonth = month;
+    currentYear = year;
+    const newDate = new Date();
+    today = new Date(year, month, newDate.getDate());
+    holidayGroup = await fetchHolidays();
+};
+
+function addCalendarEventListeners() {
+    const backArrow = document.getElementById('back-button');
+    backArrow.addEventListener('click', getPreviousMonth);
+    const nextArrow = document.getElementById('forward-button');
+    nextArrow.addEventListener('click', getNextMonth);
+};

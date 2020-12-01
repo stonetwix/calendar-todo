@@ -6,6 +6,7 @@ async function main() {
     loadTodos();
     holidayGroup = await fetchHolidays();
     loadCalender();
+    addCalendarEventListeners();
     // loadToday();
 };
 

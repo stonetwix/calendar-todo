@@ -175,8 +175,17 @@ label {
 .holiday-text {
   float: right;
   font-size: 0.6rem;
-  margin-left: -1.5rem;
+  margin-left: -1.3rem;
   margin-top: 1.2rem;
   color: red;
   position: absolute;
+}
+
+.fa-chevron-circle-left, .fa-chevron-circle-right {
+  float: right;
+  margin-bottom: 1rem;
+  margin-top: -2rem;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
